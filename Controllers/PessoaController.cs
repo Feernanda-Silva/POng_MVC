@@ -22,20 +22,20 @@ namespace Controllers
             pessoaService.Cadastrar(pessoa);
         }
 
-        public Pessoa Consultar(string cpf)
-        {
-            return pessoaService.Consultar(cpf);
-        }
+        //public Pessoa Consultar(string cpf)
+        //{
+        //    return pessoaService.Consultar(cpf);
+        //}
 
         public void Editar(Pessoa pessoa)
         {
             pessoaService.Editar(pessoa);
         }
 
-        public bool PossuirCPFCadastrado(string cpf)
-        {
-            return pessoaService.PossuirCPFCadastrado(cpf);
-        }
+        //public bool PossuirCPFCadastrado(string cpf)
+        //{
+        //    return pessoaService.PossuirCPFCadastrado(cpf);
+        //}
 
 
     }

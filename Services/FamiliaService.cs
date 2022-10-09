@@ -26,7 +26,7 @@ namespace Services
 
         public bool PossuirCodFamiliaCadastrado(int codigo)
         {
-            return false;
+            return true;
         }
     }
 }

@@ -1,13 +1,25 @@
 ﻿using System;
+using System.Data.SqlClient;
+using Dapper;
 using Models;
 
 namespace Services
 {
     public class AnimalService
     {
+        private string _conn;
+        
+        public AnimalService()
+        {
+            _conn = ConexaoBanco.Get();
+        }
         public void Cadastrar(Animal animal)
         {
-
+            using (var db = new SqlConnection(_conn))
+            {
+                db.Open();
+                db.Execute(Animal.INSERT, animal);
+            }
         }
 
         public Animal Consultar(int chip)

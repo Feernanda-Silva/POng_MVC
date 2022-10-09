@@ -14,20 +14,20 @@ namespace Services
 
         }
 
-        public Pessoa Consultar(string cpf)
-        {
+        //public Pessoa Consultar(string cpf)
+        //{
 
-        }
+        //}
 
         public void Editar(Pessoa pessoa)
         {
 
         }
 
-        public bool PossuirCPFCadastrado(string cpf)
-        {
+        //public bool PossuirCPFCadastrado(string cpf)
+        //{
 
-        }
+        //}
     }
 
 }

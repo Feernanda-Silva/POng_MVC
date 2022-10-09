@@ -97,10 +97,10 @@ namespace POng_MVC
                             familiaView.Cadastrar();
                             break;
                         case 5:
-                            familia.Consultar();
+                            familiaView.Consultar();
                             break;
                         case 6:
-                            familia.Editar();
+                            familiaView.Editar();
                             break;
                         case 7:
                             Adocao();
@@ -130,10 +130,10 @@ namespace POng_MVC
                     switch (opcAdocao)
                     {
                         case 1:
-                            animal.AdotarAnimal();
+                            animalView.AdotarAnimal();
                             break;
                         case 2:
-                            animal.ConsultarAdocao();
+                            animalView.ConsultarAdocao();
                             break;
                         case 3:
                             MenuInicial();

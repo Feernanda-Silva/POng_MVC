@@ -78,7 +78,7 @@ namespace POng_MVC
                 animal.Cod_Familia = int.Parse(Console.ReadLine());
             }
 
-            //Conexao Insert 
+            animalController.Cadastrar(animal);
         }
 
         public void Editar()
@@ -127,7 +127,7 @@ namespace POng_MVC
             {
                 Console.WriteLine("Raça: ");
                 string raca = Console.ReadLine();
-                
+
                 //Conexao Update 
 
                 Console.WriteLine("Edição efetuada com sucesso!");
@@ -137,7 +137,7 @@ namespace POng_MVC
             {
                 Console.WriteLine("Sexo: ");
                 string sexo = Console.ReadLine();
-                
+
                 //Conexão update
 
                 Console.WriteLine("Edição efetuada com sucesso!");
@@ -165,24 +165,40 @@ namespace POng_MVC
                     codigoFamilia = int.Parse(Console.ReadLine());
                 }
 
-               //Conexao update 
+                //Conexao update 
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
 
         }
 
+        public void Consultar()
+        {
+            Console.WriteLine("\nDigite o código do chip para localizar o animal: ");
+            int chip = int.Parse(Console.ReadLine());
+
+
+            while (animalController.PossuirChipCadastrado(chip) == false)
+            {
+                Console.WriteLine("CHIP não encontrado!");
+                Console.WriteLine("Digite outro CHIP: ");
+                chip = int.Parse(Console.ReadLine());
+            }
+
+        }
+
         public void AdotarAnimal()
         {
+
             Console.WriteLine("Digite o CPF do futuro Tutor: ");
             string cpf = Console.ReadLine();
 
-            while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            {
-                Console.WriteLine("CPF não encontrado!");
-                Console.WriteLine("Digite outro CPF:");
-                cpf = Console.ReadLine();
-            }
+            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
+            //{
+            //    Console.WriteLine("CPF não encontrado!");
+            //    Console.WriteLine("Digite outro CPF:");
+            //    cpf = Console.ReadLine();
+            //}
 
             Console.WriteLine("Digite o CHIP do Animal: ");
             int chip = int.Parse(Console.ReadLine());
@@ -204,12 +220,12 @@ namespace POng_MVC
             Console.WriteLine("Digite o CPF do Tutor: ");
             string cpf = Console.ReadLine();
 
-            while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            {
-                Console.WriteLine("CPF não encontrado!");
-                Console.WriteLine("Digite outro CPF:");
-                cpf = Console.ReadLine();
-            }
+            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
+            //{
+            //    Console.WriteLine("CPF não encontrado!");
+            //    Console.WriteLine("Digite outro CPF:");
+            //    cpf = Console.ReadLine();
+            //}
 
         }
     }

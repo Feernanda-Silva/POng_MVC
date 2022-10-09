@@ -28,12 +28,12 @@ namespace POng_MVC
             pessoa.Cpf = Console.ReadLine();
 
             //Tratamento: SELECT para ver se existe um cadastro com esse CPF.
-            while (pessoaController.PossuirCPFCadastrado(pessoa.Cpf) == true)
-            {
-                Console.WriteLine("Já possui CPF cadastrado.");
-                Console.WriteLine("Cpf: ");
-                pessoa.Cpf = Console.ReadLine();
-            }
+            //while (pessoaController.PossuirCPFCadastrado(pessoa.Cpf) == true)
+            //{
+            //    Console.WriteLine("Já possui CPF cadastrado.");
+            //    Console.WriteLine("Cpf: ");
+            //    pessoa.Cpf = Console.ReadLine();
+            //}
 
             Console.WriteLine("Sexo(M/F): ");
             pessoa.Sexo = char.Parse(Console.ReadLine());
@@ -54,12 +54,12 @@ namespace POng_MVC
             Console.WriteLine("\nDigite o CPF para localizar o Cadastro : ");
             string cpf = Console.ReadLine();
 
-            while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            {
-                Console.WriteLine("CPF não encontrado!");
-                Console.WriteLine("Digite outro CPF:");
-                cpf = Console.ReadLine();
-            }
+            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
+            //{
+            //    Console.WriteLine("CPF não encontrado!");
+            //    Console.WriteLine("Digite outro CPF:");
+            //    cpf = Console.ReadLine();
+            //}
 
             int opc;
 
@@ -234,12 +234,12 @@ namespace POng_MVC
             Console.WriteLine("\nDigite o CPF: ");
             string cpf = Console.ReadLine();
 
-            while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            {
-                Console.WriteLine("CPF não encontrado!");
-                Console.WriteLine("Digite outro CPF:");
-                cpf = Console.ReadLine();
-            }
+            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
+            //{
+            //    Console.WriteLine("CPF não encontrado!");
+            //    Console.WriteLine("Digite outro CPF:");
+            //    cpf = Console.ReadLine();
+            //}
 
             //Conexao para consultar e imprimir 
 
