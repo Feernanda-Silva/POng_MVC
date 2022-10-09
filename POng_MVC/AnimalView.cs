@@ -128,7 +128,7 @@ namespace POng_MVC
                 Console.WriteLine("Raça: ");
                 string raca = Console.ReadLine();
 
-                //Conexao Update 
+                animalController.EditarRaca(raca, chip);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -136,9 +136,9 @@ namespace POng_MVC
             void EditarSexo()
             {
                 Console.WriteLine("Sexo: ");
-                string sexo = Console.ReadLine();
+                char sexo = char.Parse(Console.ReadLine());
 
-                //Conexão update
+                animalController.EditarSexo(sexo, chip);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -148,7 +148,7 @@ namespace POng_MVC
                 Console.WriteLine("Nome do Animal: ");
                 string nome = Console.ReadLine();
 
-                //Conexao update
+                animalController.EditarNomeAnimal(nome, chip);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -165,7 +165,7 @@ namespace POng_MVC
                     codigoFamilia = int.Parse(Console.ReadLine());
                 }
 
-                //Conexao update 
+                animalController.EditarCodFamilia(codigoFamilia, chip);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -184,7 +184,26 @@ namespace POng_MVC
                 Console.WriteLine("Digite outro CHIP: ");
                 chip = int.Parse(Console.ReadLine());
             }
-            animalController.Consultar(chip);
+
+            Animal animal = animalController.Consultar(chip);
+
+            Console.WriteLine("\nChip: {0}", animal.Chip);
+            Console.WriteLine("Raça: {0}", animal.Raca);
+            Console.WriteLine("Sexo: {0}", animal.Sexo);
+            Console.WriteLine("Nome do animal: {0}", animal.Nome);
+            if (animal.Cpf == null)
+            {
+                Console.WriteLine("Cpf: Não possui tutor");
+            }
+
+            else
+            {
+                Console.WriteLine("Cpf do tutor: {0}", animal.Cpf);
+            }
+
+            Console.WriteLine("Cod_Familia: {0}", animal.Cod_Familia);
+            
+
         }
 
         public void AdotarAnimal()
@@ -210,7 +229,7 @@ namespace POng_MVC
                 chip = int.Parse(Console.ReadLine());
             }
 
-            //Conexao update 
+            animalController.Adotar(chip, cpf);
 
             Console.WriteLine("\nAdoção efetuada com sucesso!");
         }
@@ -226,6 +245,8 @@ namespace POng_MVC
             //    Console.WriteLine("Digite outro CPF:");
             //    cpf = Console.ReadLine();
             //}
+
+            animalController.ConsultarAdocao(cpf);
 
         }
     }

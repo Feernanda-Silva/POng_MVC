@@ -28,12 +28,12 @@ namespace POng_MVC
             pessoa.Cpf = Console.ReadLine();
 
             //Tratamento: SELECT para ver se existe um cadastro com esse CPF.
-            //while (pessoaController.PossuirCPFCadastrado(pessoa.Cpf) == true)
-            //{
-            //    Console.WriteLine("Já possui CPF cadastrado.");
-            //    Console.WriteLine("Cpf: ");
-            //    pessoa.Cpf = Console.ReadLine();
-            //}
+            while (pessoaController.PossuirCPFCadastrado(pessoa.Cpf) == true)
+            {
+                Console.WriteLine("Já possui CPF cadastrado.");
+                Console.WriteLine("Cpf: ");
+                pessoa.Cpf = Console.ReadLine();
+            }
 
             Console.WriteLine("Sexo(M/F): ");
             pessoa.Sexo = char.Parse(Console.ReadLine());

@@ -26,9 +26,25 @@ namespace Controllers
             return animalService.Consultar(chip);
         }
 
-        public void Editar(Animal animal)
+        public void EditarRaca(string raca, int chip)
         {
-            animalService.Editar(animal);   
+            animalService.EditarRaca(raca, chip);   
+        }
+
+
+        public void EditarSexo(char sexo, int chip)
+        {
+            animalService.EditarSexo(sexo, chip);
+        }
+
+        public void EditarNomeAnimal(string nome, int chip)
+        {
+            animalService.EditarNomeAnimal(nome, chip);
+        }
+
+        public void EditarCodFamilia(int codFamilia, int chip)
+        {
+            animalService.EditarCodFamilia(codFamilia, chip);
         }
 
         public void Adotar(int chip, string cpf)
@@ -44,7 +60,6 @@ namespace Controllers
         public bool PossuirChipCadastrado(int chip)
         {
             return animalService.PossuirChipCadastrado(chip);
-
         }
     }
 }

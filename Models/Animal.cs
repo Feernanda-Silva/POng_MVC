@@ -6,7 +6,7 @@ namespace Models
     {
         public readonly static string INSERT = "INSERT INTO Animal(CHIP, Raca, Sexo, Nome, Cod_Familia) VALUES (@CHIP, @Raca, @Sexo, @Nome, @Cod_Familia);";
        
-        public readonly static string SELECT_CONSULTAR = "SELECT Animal.CHIP, Animal.Raca, Animal.Sexo, Animal.Nome, Animal.CPF, Familia.Cod_Familia, Familia.Tipo FROM Animal, Familia WHERE Animal.CHIP = @CHIP;";
+        public readonly static string SELECT_CONSULTAR = "SELECT Animal.CHIP, Animal.Raca, Animal.Sexo, Animal.Nome, Animal.CPF, Familia.Cod_Familia  FROM Animal, Familia WHERE Animal.CHIP = @CHIP;";
         
         public readonly static string UPDATE_RACA = "UPDATE Animal SET Raca = @Raca WHERE Animal.CHIP = @CHIP;";
         
@@ -30,7 +30,7 @@ namespace Models
         public string Raca { get; set; }
         public char Sexo { get; set; }
         public string Nome { get; set; }
-        public Pessoa Cpf { get; set; }
+        public string Cpf { get; set; }
         public int Cod_Familia { get; set; }
     }
 }
