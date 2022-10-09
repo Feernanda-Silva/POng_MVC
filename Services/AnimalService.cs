@@ -24,7 +24,14 @@ namespace Services
 
         public Animal Consultar(int chip)
         {
-            return null;
+            using (var db = new SqlConnection(_conn))
+            {   Animal animal =  new Animal();
+               db.Open();
+                return animal= db.Execute(Animal.SELECT_CONSULTAR, chip);
+               
+            }
+
+            
         }
 
         public void Editar(Animal animal)

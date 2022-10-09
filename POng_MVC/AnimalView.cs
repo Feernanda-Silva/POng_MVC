@@ -184,7 +184,7 @@ namespace POng_MVC
                 Console.WriteLine("Digite outro CHIP: ");
                 chip = int.Parse(Console.ReadLine());
             }
-
+            animalController.Consultar(chip);
         }
 
         public void AdotarAnimal()
