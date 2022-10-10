@@ -7,8 +7,7 @@ namespace POng_MVC
     {
         static void Main(string[] args)
         {
-            //Conexao conexao = new Conexao();
-            //SqlConnection sqlConnection = conexao.ConectarBanco();
+   
             AnimalView animalView = new AnimalView();
             FamiliaView familiaView = new FamiliaView();
             PessoaView pessoaView = new PessoaView();

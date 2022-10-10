@@ -15,7 +15,7 @@ namespace POng_MVC
         public FamiliaView()
         {
             this.familiaController = new FamiliaController(); //instanciando 
-            
+
         }
         public void Cadastrar()
         {
@@ -24,36 +24,43 @@ namespace POng_MVC
             Console.WriteLine("Tipo: ");
             familia.Tipo = Console.ReadLine();
 
-            //Conexao Insert
+            familiaController.Cadastrar(familia);
 
             Console.WriteLine("\nCadastro efetuado com sucesso!");
 
         }
 
-
-
         public void Editar()
         {
+            Familia familia = new Familia();
             Console.WriteLine("Digite o Código da Familia: ");
-            int codigoFamilia = int.Parse(Console.ReadLine());
+            familia.Cod_Familia = int.Parse(Console.ReadLine());
 
-            while (familiaController.PossuirCodFamiliaCadastrado(codigoFamilia) == false)
+            while (familiaController.PossuirCodFamiliaCadastrado(familia.Cod_Familia) == false)
             {
                 Console.WriteLine("Código da familia não encontrado!");
                 Console.WriteLine("Digite o código da familia: ");
-                codigoFamilia = int.Parse(Console.ReadLine());
+                familia.Cod_Familia = int.Parse(Console.ReadLine());
             }
 
             Console.WriteLine("Tipo: ");
-            string tipo = Console.ReadLine();
+            familia.Tipo = Console.ReadLine();
 
-            //Conexao update 
+            familiaController.Editar(familia);
 
         }
 
         public void Consultar()
         {
-            //Conexão imprimir todas 
+            
+
+            List<Familia> familias = familiaController.Consultar();
+
+            foreach (var familia in familias)
+            {
+                Console.WriteLine("\nCodigo Familia: {0}", familia.Cod_Familia);
+                Console.WriteLine("Tipo: {0}", familia.Tipo);
+            }
         }
     }
 }

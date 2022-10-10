@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Models;
 using Services;
 
@@ -18,9 +19,9 @@ namespace Controllers
             familiaService.Cadastrar(familia);
         }
 
-        public Familia Consultar(int codigo)
+        public List<Familia> Consultar()
         {
-            return familiaService.Consultar(codigo);
+            return familiaService.Consultar();
         }
 
         public void Editar(Familia familia )
