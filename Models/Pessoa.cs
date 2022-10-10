@@ -8,11 +8,11 @@ namespace Models
 {
     public class Pessoa
     {
-        public readonly static string INSERT = "INSERT INTO Pessoa(Nome, CPF, Sexo, Data_Nascimento, Telefone, Cod_Endereco) VALUES(@Nome, @CPF, @Sexo, @Data_Nascimento,@Telefone, @Cod_Endereco);";
+        public readonly static string INSERT = "INSERT INTO Pessoa(Nome, CPF, Sexo, Data_Nascimento, Telefone, Cod_Endereco) VALUES(@Nome, @CPF, @Sexo, @DataNascimento,@Telefone, @Cod_Endereco);";
 
-        public readonly static string SELECT = "SELECT Pessoa.Nome, Pessoa.CPF, Pessoa.Sexo, Pessoa.Data_Nascimento, Pessoa.Telefone, Endereco.Logradouro," +
-                "Endereco.Bairro, Endereco.Numero, Endereco.Complemento, Endereco.CEP, Endereco.Cidade, Endereco.UF FROM Pessoa, Endereco " +
-                "WHERE Pessoa.Cod_Endereco = Endereco.Cod_Endereco AND Pessoa.CPF = @CPF";
+        public readonly static string SELECT = "SELECT Pessoa.Nome, Pessoa.CPF, Pessoa.Sexo, Pessoa.Data_Nascimento, Pessoa.Telefone, Pessoa.Cod_Endereco " +
+                "FROM Pessoa " +
+                "WHERE Pessoa.CPF = @CPF";
 
         public readonly static string UPDATE_NOME = "UPDATE Pessoa SET Nome = @Nome WHERE Pessoa.CPF = @CPF;";
 
@@ -43,7 +43,6 @@ namespace Models
         public char Sexo { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
-        public Endereco endereco { get; set; }
-        public Endereco cod_Endereco { get; set; }
+        public int Cod_Endereco { get; set; }
     }
 }

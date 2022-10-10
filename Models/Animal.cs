@@ -18,11 +18,9 @@ namespace Models
         
         public readonly static string UPDATE_ADOTAR = "UPDATE Animal SET CPF = @CPF WHERE Animal.CHIP = @CHIP;";
         
-        public readonly static string SELECT_CONSULTARADOCAO = "SELECT Pessoa.Nome, Pessoa.CPF, Animal.CHIP, Animal.Raca, Animal.Sexo, Animal.Nome, Animal.Cod_Familia, Familia.Tipo " +
-                "FROM Pessoa, Animal, Familia " +
-                "WHERE Pessoa.CPF = Animal.CPF " +
-                "AND Familia.Cod_Familia = Animal.Cod_Familia " +
-                "AND Pessoa.CPF = @CPF;";
+        public readonly static string SELECT_CONSULTARADOCAO = "SELECT Animal.CPF, Animal.CHIP, Animal.Raca, Animal.Sexo, Animal.Nome, Animal.Cod_Familia " +
+                "FROM Animal " +
+                "WHERE Animal.CPF = @CPF;";
        
         public readonly static string SELECT_POSSUIRCHIP = "SELECT CHIP FROM Animal WHERE CHIP = @CHIP";
         

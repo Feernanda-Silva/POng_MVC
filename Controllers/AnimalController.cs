@@ -52,7 +52,7 @@ namespace Controllers
             animalService.Adotar(chip, cpf);
         }
 
-        public Animal ConsultarAdocao(string cpf)
+        public  List<Animal> ConsultarAdocao(string cpf)
         {
             return animalService.ConsultarAdocao(cpf);
         }

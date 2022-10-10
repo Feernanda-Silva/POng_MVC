@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using Models;
@@ -83,14 +84,14 @@ namespace Services
             }
         }
 
-        public Animal ConsultarAdocao(string cpf) //Não concluido
+        public List<Animal> ConsultarAdocao(string cpf)
         {
             using (var db = new SqlConnection(_conn))
             {
                 db.Open();
-                var parameters = new { CHIP = chip };
-                var animal = db.QueryFirst<Animal>(Animal.SELECT_CONSULTAR, parameters);
-                return (Animal)animal;
+                var parameters = new { CPF = cpf };
+                var animal = db.Query<Animal>(Animal.SELECT_CONSULTARADOCAO, parameters);
+                return (List<Animal>)animal;
             }
         }
 
@@ -102,7 +103,7 @@ namespace Services
             {
                 db.Open();
                 var parameters = new { CHIP = chip };
-                var animal = db.QueryFirstOrDefault<Animal>(Animal.SELECT_CONSULTAR, parameters);
+                var animal = db.QueryFirstOrDefault<Animal>(Animal.SELECT_POSSUIRCHIP, parameters);
 
 
                 if (animal != null)

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 using Services;
 
 namespace Controllers
 {
-    public  class EnderecoController
+    public class EnderecoController
     {
         private EnderecoService enderecoService;
 
@@ -16,9 +17,14 @@ namespace Controllers
             this.enderecoService = new EnderecoService();
         }
 
-        public void Cadastrar()
+        public int Cadastrar(Endereco endereco)
         {
-            enderecoService.Cadastrar();    
+            return enderecoService.Cadastrar(endereco);
+        }
+
+        public Endereco Consultar(int codigo)
+        {
+            return enderecoService.Consultar(codigo);
         }
     }
 }

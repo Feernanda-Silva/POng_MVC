@@ -22,21 +22,70 @@ namespace Controllers
             pessoaService.Cadastrar(pessoa);
         }
 
-        //public Pessoa Consultar(string cpf)
-        //{
-        //    return pessoaService.Consultar(cpf);
-        //}
-
-        public void Editar(Pessoa pessoa)
+        public Pessoa Consultar(string cpf)
         {
-            pessoaService.Editar(pessoa);
+            return pessoaService.Consultar(cpf);
         }
 
-        //public bool PossuirCPFCadastrado(string cpf)
-        //{
-        //    return pessoaService.PossuirCPFCadastrado(cpf);
-        //}
+        public void EditarNome(string nome, string cpf)
+        {
+            pessoaService.EditarNome(nome, cpf);
+        }
 
+        public void EditarSexo(char sexo, string cpf)
+        {
+            pessoaService.EditarSexo(sexo, cpf);
+        }
+
+        public void EditarDataNascimento(DateTime dataNascimento, string cpf)
+        {
+            pessoaService.EditarDataNascimento(dataNascimento, cpf);
+        }
+
+        public void EditarTelefone(string telefone, string cpf)
+        {
+            pessoaService.EditarTelefone(telefone, cpf);    
+        }
+
+        public void EditarLogradouro(string logradouro, string cpf)
+        {
+            pessoaService.EditarLogradouro(logradouro, cpf);
+        }
+
+        public void EditarBairro(string bairro, string cpf)
+        {
+            pessoaService.EditarBairro(bairro, cpf);
+        }
+
+        public void EditarNumero(int numero, string cpf)
+        {
+            pessoaService.EditarNumero(numero, cpf);
+        }
+
+        public void EditarComplemento(string complemento, string cpf)
+        {
+            pessoaService.EditarComplemento(complemento, cpf);
+        }
+
+        public void EditarCep(int cep, string cpf)
+        {
+            pessoaService.EditarCep(cep, cpf);  
+        }
+
+        public void EditarCidade(string cidade, string cpf)
+        {
+            pessoaService.EditarCidade(cidade, cpf);
+        }
+
+        public void EditarUF(string uf, string cpf)
+        {
+            pessoaService.EditarUF(uf, cpf);    
+        }
+
+        public bool PossuirCpfCadastrado(string cpf)
+        {
+            return pessoaService.PossuirCpfCadastrado(cpf);
+        }
 
     }
 }

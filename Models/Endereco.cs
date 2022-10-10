@@ -8,6 +8,8 @@ namespace Models
 {
     public  class Endereco
     {
+        public readonly static string INSERT = "INSERT INTO Endereco(Logradouro, Bairro, Numero, Complemento, CEP, Cidade, UF) OUTPUT INSERTED.Cod_Endereco VALUES (@Logradouro, @Bairro, @Numero, @Complemento, @CEP, @Cidade, @UF);";
+        public readonly static string SELECT = "SELECT Logradouro, Bairro, Numero, Complemento, CEP, Cidade, UF FROM Endereco WHERE Cod_Endereco = @Cod_Endereco;";
         public string Logradouro { get; set; }
         public string Bairro { get; set; }
         public int Numero { get; set; }

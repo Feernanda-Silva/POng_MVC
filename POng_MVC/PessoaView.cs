@@ -19,6 +19,7 @@ namespace POng_MVC
         public void Cadastrar()
         {
             Pessoa pessoa = new Pessoa();
+            Endereco endereco = new Endereco();
             EnderecoView enderecoView = new EnderecoView();
 
             Console.WriteLine("Nome: ");
@@ -27,8 +28,8 @@ namespace POng_MVC
             Console.WriteLine("Cpf: ");
             pessoa.Cpf = Console.ReadLine();
 
-            //Tratamento: SELECT para ver se existe um cadastro com esse CPF.
-            while (pessoaController.PossuirCPFCadastrado(pessoa.Cpf) == true)
+        
+            while (pessoaController.PossuirCpfCadastrado(pessoa.Cpf) == true)
             {
                 Console.WriteLine("Já possui CPF cadastrado.");
                 Console.WriteLine("Cpf: ");
@@ -44,9 +45,9 @@ namespace POng_MVC
             Console.WriteLine("Telefone: ");
             pessoa.Telefone = Console.ReadLine();
 
-            int codigo_endereco = enderecoView.Cadastrar();
+            pessoa.Cod_Endereco = enderecoView.Cadastrar();
 
-            //conexao para inserir 
+            pessoaController.Cadastrar(pessoa);
         }
 
         public void Editar()
@@ -54,12 +55,12 @@ namespace POng_MVC
             Console.WriteLine("\nDigite o CPF para localizar o Cadastro : ");
             string cpf = Console.ReadLine();
 
-            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            //{
-            //    Console.WriteLine("CPF não encontrado!");
-            //    Console.WriteLine("Digite outro CPF:");
-            //    cpf = Console.ReadLine();
-            //}
+            while (pessoaController.PossuirCpfCadastrado(cpf) == false)
+            {
+                Console.WriteLine("CPF não encontrado!");
+                Console.WriteLine("Digite outro CPF:");
+                cpf = Console.ReadLine();
+            }
 
             int opc;
 
@@ -122,8 +123,10 @@ namespace POng_MVC
             {
                 Console.WriteLine("Nome: ");
                 string nome = Console.ReadLine();
-                
-                //Conexao 
+
+                pessoaController.EditarNome(nome, cpf);
+
+                Console.WriteLine("Edição efetuada com sucesso!");
 
             }
 
@@ -132,7 +135,7 @@ namespace POng_MVC
                 Console.WriteLine("Sexo: ");
                 char sexo = char.Parse(Console.ReadLine());
 
-                //Conexao 
+                pessoaController.EditarSexo(sexo, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -142,7 +145,7 @@ namespace POng_MVC
                 Console.WriteLine("Data Nascimento: ");
                 DateTime dataNascimento = DateTime.Parse(Console.ReadLine());
 
-                //Conexao
+                pessoaController.EditarDataNascimento(dataNascimento, cpf); 
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -152,7 +155,7 @@ namespace POng_MVC
                 Console.WriteLine("Telefone: ");
                 string telefone = Console.ReadLine();
 
-                //Conexao
+                pessoaController.EditarTelefone(telefone, cpf); 
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -162,7 +165,7 @@ namespace POng_MVC
                 Console.WriteLine("Logradouro: ");
                 string logradouro = Console.ReadLine();
 
-                //Conexao
+                pessoaController.EditarLogradouro(logradouro, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -172,7 +175,7 @@ namespace POng_MVC
                 Console.WriteLine("Bairro: ");
                 string bairro = Console.ReadLine();
 
-               //Conexao
+               pessoaController.EditarBairro(bairro, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -182,7 +185,7 @@ namespace POng_MVC
                 Console.WriteLine("Numero: ");
                 int numero = int.Parse(Console.ReadLine());
 
-                //Conexao
+                pessoaController.EditarNumero(numero, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -192,7 +195,7 @@ namespace POng_MVC
                 Console.WriteLine("Complemento: ");
                 string complemento = Console.ReadLine();
 
-                //Conexao
+                pessoaController.EditarComplemento(complemento, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -202,7 +205,7 @@ namespace POng_MVC
                 Console.WriteLine("CEP: ");
                 int cep = int.Parse(Console.ReadLine());
 
-                //Conexao
+                pessoaController.EditarCep(cep, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -212,17 +215,17 @@ namespace POng_MVC
                 Console.WriteLine("Cidade: ");
                 string cidade = Console.ReadLine();
 
-                //Conexao
+                pessoaController.EditarCidade(cidade, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
 
             void EditarUf()
             {
-                Console.WriteLine("Cidade: ");
+                Console.WriteLine("Uf: ");
                 string uf = Console.ReadLine();
 
-                //Conexao
+                pessoaController.EditarUF(uf, cpf);
 
                 Console.WriteLine("Edição efetuada com sucesso!");
             }
@@ -234,14 +237,22 @@ namespace POng_MVC
             Console.WriteLine("\nDigite o CPF: ");
             string cpf = Console.ReadLine();
 
-            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            //{
-            //    Console.WriteLine("CPF não encontrado!");
-            //    Console.WriteLine("Digite outro CPF:");
-            //    cpf = Console.ReadLine();
-            //}
+            while (pessoaController.PossuirCpfCadastrado(cpf) == false)
+            {
+                Console.WriteLine("CPF não encontrado!");
+                Console.WriteLine("Digite outro CPF:");
+                cpf = Console.ReadLine();
+            }
 
-            //Conexao para consultar e imprimir 
+            Pessoa pessoa = pessoaController.Consultar(cpf);
+
+            Console.WriteLine("Nome: {0}", pessoa.Nome);
+            Console.WriteLine("CPF: {0}", pessoa.Cpf);
+            Console.WriteLine("Sexo: {0}", pessoa.Sexo);
+            Console.WriteLine("Data Nascimento: {0}", pessoa.DataNascimento);
+            Console.WriteLine("Telefone: {0}", pessoa.Cpf);
+
+            new EnderecoView().Consultar(pessoa.Cod_Endereco);
 
         }
     }

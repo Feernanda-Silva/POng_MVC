@@ -202,7 +202,6 @@ namespace POng_MVC
             }
 
             Console.WriteLine("Cod_Familia: {0}", animal.Cod_Familia);
-            
 
         }
 
@@ -212,12 +211,12 @@ namespace POng_MVC
             Console.WriteLine("Digite o CPF do futuro Tutor: ");
             string cpf = Console.ReadLine();
 
-            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            //{
-            //    Console.WriteLine("CPF não encontrado!");
-            //    Console.WriteLine("Digite outro CPF:");
-            //    cpf = Console.ReadLine();
-            //}
+            while (pessoaController.PossuirCpfCadastrado(cpf) == false)
+            {
+                Console.WriteLine("CPF não encontrado!");
+                Console.WriteLine("Digite outro CPF:");
+                cpf = Console.ReadLine();
+            }
 
             Console.WriteLine("Digite o CHIP do Animal: ");
             int chip = int.Parse(Console.ReadLine());
@@ -239,14 +238,33 @@ namespace POng_MVC
             Console.WriteLine("Digite o CPF do Tutor: ");
             string cpf = Console.ReadLine();
 
-            //while (pessoaController.PossuirCPFCadastrado(cpf) == false)
-            //{
-            //    Console.WriteLine("CPF não encontrado!");
-            //    Console.WriteLine("Digite outro CPF:");
-            //    cpf = Console.ReadLine();
-            //}
+            while (pessoaController.PossuirCpfCadastrado(cpf) == false)
+            {
+                Console.WriteLine("CPF não encontrado!");
+                Console.WriteLine("Digite outro CPF:");
+                cpf = Console.ReadLine();
+            }
 
-            animalController.ConsultarAdocao(cpf);
+            List<Animal> animais = animalController.ConsultarAdocao(cpf);
+
+            foreach (var animal in animais)
+            {
+                Console.WriteLine("\nChip: {0}", animal.Chip);
+                Console.WriteLine("Raça: {0}", animal.Raca);
+                Console.WriteLine("Sexo: {0}", animal.Sexo);
+                Console.WriteLine("Nome do animal: {0}", animal.Nome);
+                if (animal.Cpf == null)
+                {
+                    Console.WriteLine("Cpf: Não possui tutor");
+                }
+
+                else
+                {
+                    Console.WriteLine("Cpf do tutor: {0}", animal.Cpf);
+                }
+
+                Console.WriteLine("Cod_Familia: {0}", animal.Cod_Familia);
+            }
 
         }
     }
