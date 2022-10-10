@@ -79,6 +79,8 @@ namespace POng_MVC
             }
 
             animalController.Cadastrar(animal);
+
+            Console.WriteLine("\nCadastro efetuado com sucesso!");
         }
 
         public void Editar()

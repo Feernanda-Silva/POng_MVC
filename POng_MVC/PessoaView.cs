@@ -48,6 +48,8 @@ namespace POng_MVC
             pessoa.Cod_Endereco = enderecoView.Cadastrar();
 
             pessoaController.Cadastrar(pessoa);
+
+            Console.WriteLine("\nCadastro efetuado com sucesso!");
         }
 
         public void Editar()

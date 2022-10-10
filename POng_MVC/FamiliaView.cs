@@ -48,6 +48,8 @@ namespace POng_MVC
 
             familiaController.Editar(familia);
 
+            Console.WriteLine("Edição efetuada com sucesso!");
+
         }
 
         public void Consultar()
